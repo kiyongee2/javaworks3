@@ -5,5 +5,5 @@
  * @author kiyon
  *
  */
-module ch01 {
+module ch {
 }

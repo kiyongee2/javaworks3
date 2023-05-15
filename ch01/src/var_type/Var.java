@@ -1,4 +1,4 @@
-package hello;
+package var_type;
 
 public class Var {
 
