@@ -13,7 +13,7 @@ public class BookArry {
 		
 		library[0] = new Book("혼자 공부하는 Java", "신용권");
 		library[1] = new Book("반응형 웹 프로젝트", "김은아");
-		library[2] = new Book("tiny project", "켄 유스");
+		library[2] = new Book("tiny project", "켄 유엔스-클락");
 		library[3] = new Book("미생1", "윤태호");
 		library[4] = new Book("미생2", "윤태호");
 		
