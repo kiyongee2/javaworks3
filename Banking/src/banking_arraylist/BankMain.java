@@ -145,7 +145,7 @@ public class BankMain {
 		Account account = null;  //찾을 계좌 저장할 객체 생성
 		
 		for(int i=0; i<accountList.size(); i++) {
-			String dbAno = accountList.get(i).getAno(); //이미 배열에 저장된 계좌가
+			String dbAno = accountList.get(i).getAno(); //이미 배열에 저장된 계좌
 			if(dbAno.equals(ano)) { //찾는 계좌와 일치하면
 				account = accountList.get(i);  //계좌를 가져옴
 				break;
