@@ -149,7 +149,6 @@ public class BankMain {
 			if(dbAno.equals(ano)) { //찾는 계좌와 일치하면
 				account = accountList.get(i);  //계좌를 가져옴
 				break;
-				
 			}
 		}
 		return account;  //계좌를 호출한 곳으로 돌려줌		

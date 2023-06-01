@@ -4,30 +4,34 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class JDBCUtil {
-	private static String driverClass = "oracle.jdbc.OracleDriver";
-	private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private static String username = "system";
-	private static String password = "12345";
+
+	private static String driverClass = "oracle.jdbc.OracleDriver";      //Ïò§ÎùºÌÅ¥ ÎìúÎùºÏù¥Î≤Ñ
+	private static String url = "jdbc:oracle:thin:@localhost:1521:xe";   //db Í≤ΩÎ°ú Ìè¨Ìä∏-1521
+	private static String username = "c##jweb";                           //ÏÇ¨Ïö©Ïûê Ïù¥Î¶Ñ
+	private static String password = "4321";
 	
-    //DB ø¨∞· ∏ﬁº≠µÂ
-	public static Connection getConnention() {
+	//DB Ïó∞Í≤∞ Î©îÏÑúÎìú
+	public static Connection getConnection() {
 		try {
 			Class.forName(driverClass);
 			return DriverManager.getConnection(url, username, password);
-		} catch (Exception e) {
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	//DB ø¨∞· ¡æ∑· ∏ﬁº≠µÂ
+	//DB Ïó∞Í≤∞ Ï¢ÖÎ£å Î©îÏÑúÎìú
 	public static void close(Connection conn, PreparedStatement pstmt) {
 		if(pstmt != null) {
 			try {
 				pstmt.close();
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				pstmt = null;
@@ -37,7 +41,7 @@ public class JDBCUtil {
 		if(conn != null) {
 			try {
 				conn.close();
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				conn = null;
@@ -45,20 +49,22 @@ public class JDBCUtil {
 		}
 	}
 	
-	//ø¨∞· ¡æ∑·(ResultSet¿Ã ¿÷¥¬ ∞ÊøÏ)
+	//Ïó∞Í≤∞ Ï¢ÖÎ£å(ResultSetÏù¥ ÏûàÎäî Í≤ΩÏö∞)
 	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		if(rs != null) {
 			try {
 				rs.close();
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
+			}finally {
+				rs = null;
 			}
 		}
 		
 		if(pstmt != null) {
 			try {
 				pstmt.close();
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				pstmt = null;
@@ -68,11 +74,12 @@ public class JDBCUtil {
 		if(conn != null) {
 			try {
 				conn.close();
-			} catch (Exception e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
 				conn = null;
 			}
 		}
 	}
+
 }
