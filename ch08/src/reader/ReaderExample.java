@@ -1,4 +1,4 @@
-package writer;
+package reader;
 
 import java.io.FileReader;
 import java.io.Reader;
