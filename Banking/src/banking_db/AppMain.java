@@ -2,7 +2,7 @@ package banking_db;
 
 import java.util.Scanner;
 
-public class BankMain {
+public class AppMain {
 	
 	public static void main(String[] args) {
 		AccountDAO dao = new AccountDAO();
